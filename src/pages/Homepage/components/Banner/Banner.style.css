@@ -1,0 +1,26 @@
+.banner{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+.info {
+    width: 70%;
+    height: auto;
+    max-width: 1000px;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+}
+.info .title {
+    margin-bottom: 1.5rem;
+    font-size: 40px;
+    font-weight: bold;
+}
+.info .overview {
+    font-size: 20px;
+}

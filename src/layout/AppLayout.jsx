@@ -37,9 +37,7 @@ const AppLayout = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Container className='mt-4'>
-        <Outlet />
-      </Container>
+      <Outlet />
     </div>
   )
 }
