@@ -2,11 +2,16 @@ html,
 body {
   height: 100%;
 }
-#root {
+/* #root {
   height: 100%;
-}
+} */
 .wrap {
   height: 100%;
   background-color: #212529;
   color: #dee2e6;
+  padding-bottom: 40px;
+}
+.section {
+  padding: 20px 0 40px;
+  overflow: hidden;
 }
