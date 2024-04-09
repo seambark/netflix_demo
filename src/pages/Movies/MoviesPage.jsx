@@ -57,7 +57,6 @@ const MoviesPage = () => {
         <div className='sub_info'>
           {keyword ? <span className='keyword'>"{keyword}" 관련 영화</span> :''}
           <span className='total'>총 {data?data.total_results:'0'} 개</span>
-          <span>{data?data.page:'0'}</span>
         </div>
         <ul className='movie_list'>
         {data?.results.map((movie,index) => (
