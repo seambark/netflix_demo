@@ -9,6 +9,9 @@
     border-radius: 4px;
     background-color: rgba(255,255,255,0.2);
 }
+.movie_card a {
+    text-decoration: none;
+}
 .movie_card.fixed {
     width: 200px;
     height: 300px;
@@ -33,7 +36,7 @@
     box-shadow: inset 0 0 35px rgba(255,255,255,0.15);
 }
 .movie_card:hover {
-    transform:  scale(1.2) translateZ(20px);
+    transform:  scale(1.15) translateZ(20px);
     z-index: 2;
     box-shadow: 0 0 20px rgba(0,0,0,0.8);
 }

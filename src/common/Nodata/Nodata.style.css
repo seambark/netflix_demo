@@ -1,0 +1,26 @@
+.no_data {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 44px;
+    text-align: center;
+}
+.no_data.no_bg {
+    background-color: transparent;
+}
+.no_data.no_pd {
+    padding: 0;
+}
+.no_data p {
+    margin-bottom: 0;
+}
+.keyword {
+    font-weight: bold;
+}
+.text {
+
+}

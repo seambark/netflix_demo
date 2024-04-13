@@ -25,6 +25,7 @@ const MovieSlider = ({title, movies, responsive}) => {
             centerMode={true}
             itemClass='movie-slider p-2'
             containerClass='carousel-container'
+            dotListClass="custom-dot-list-style"
             responsive={responsive}
         >
             {data?.results.map((movie, index) => <MovieCard movie={movie} key={index}/>)}

@@ -1,0 +1,108 @@
+.movie_details {
+    display: flex;
+}
+.movie_details .img {
+    flex-shrink: 0;
+    width: 300px;
+    height: 450px;
+}
+.movie_details .img img {
+    width: 100%;
+    height: auto;
+}
+.movie_details .txt {
+    flex-grow: 1;
+    padding: 0 20px 0 25px;
+}
+
+.movie_details .genre {
+    padding: 0;
+    font-size: 20px;
+}
+.movie_details .movie_info dt,
+.movie_details .movie_info dd {
+    display: inline-block;
+    vertical-align: top;
+}
+.movie_details .movie_info dt {
+    width: 90px;
+}
+.movie_details .movie_info dd {
+    width: calc(50% - 90px);
+}
+.movie_details .overview {
+    padding: 20px 15px 20px;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.movie_details .average {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ffffff6b;
+}
+.movie_details .average svg {
+    margin-right: 7px;
+    color: #ffc03a
+}
+.movie_details .average .count {
+    position: relative;
+    margin-left: 10px;
+    padding-left: 10px;
+    color: #909090;
+    font-size: 15px;
+}
+.movie_details .average .count::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 50%;
+    background-color: #909090;
+}
+.movie_details .list_comma span {
+    position: relative;
+    display: inline-block;
+    margin-right: 3px;
+    vertical-align: top;
+}
+.movie_details .list_comma span::after {
+    content: ', ';
+}
+.movie_details .list_comma span:last-child {
+    margin-right: 0;
+}
+.movie_details .list_comma span:last-child:after {
+    display: none;
+}
+.sub_title {
+    margin: 35px 0 25px;
+    font-size: 23px;
+}
+
+@media screen and (min-width: 1280px) {
+    
+    
+}
+
+@media screen and (max-width: 768px) {
+    .movie_details {
+        flex-direction: column;
+    }
+    .movie_details .img {
+        width: 100%;
+        height: auto;
+    }
+    .movie_details .txt {
+        flex-grow: 1;
+        padding: 25px 0;
+    }
+    .movie_details .movie_info dt {
+        width: 90px;
+    }
+    .movie_details .movie_info dd {
+        width: calc(100% - 90px);
+    }
+}

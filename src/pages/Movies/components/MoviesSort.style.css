@@ -1,0 +1,6 @@
+.sorting {
+    display: flex;
+}
+.sorting > .dropdown {
+    margin-right: 15px;
+}

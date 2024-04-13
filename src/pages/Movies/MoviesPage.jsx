@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { useSearchMovieQuery } from '../../hook/useSearchMovie';
 import { useSearchParams } from 'react-router-dom';
-import Loading from '../../components/Loading/Loading';
-import Alert from 'react-bootstrap/Alert';
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-import MovieCard from '../../common/MovieCard/MovieCard';
-import './MoviesPage.style.css';
+import MoviesList from './components/MoviesList';
 import Content from '../../common/Content/Content';
-import ReactPaginate from 'react-paginate';
+import MoviesSort from './components/MoviesSort';
+import './MoviesPage.style.css';
+
 
 
 // 경로 2가지
@@ -28,64 +24,29 @@ const MoviesPage = () => {
   // eslint-disable-next-line
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(1);
+  const [sort, setSort] = useState(null);
+  const [genre, setGenre] = useState(null);
   const keyword = query.get('q');
+  
 
-  const { data, isLoading, isError, error } = useSearchMovieQuery({keyword, page});
+  const search = useSearchMovieQuery({keyword, page});
 
   const handlePageClick = ({selected}) => {
     console.log('페이지',selected)
     setPage(selected+1)
   }
-
-  // useEffect(() => {
-  //   setPage(1);
-  // }, [keyword]);
-
-
-  if(isLoading){
-    return <Loading />
-  }
-
-  if(isError){
-      return <Alert variant="danger">{error.message}</Alert>
-  }
-  // 페이지 이동 시 초기화
   
   return (
     <Content>
       <div>
+        <MoviesSort setGenre={setGenre} setSort={setSort} sort={sort} genre={genre}/>
+      </div>
+      <div>
         <div className='sub_info'>
           {keyword ? <span className='keyword'>"{keyword}" 관련 영화</span> :''}
-          <span className='total'>총 {data?data.total_results:'0'} 개</span>
+          <span className='total'>총 {search? search?.data?.total_results : '0'} 개</span>
         </div>
-        <ul className='movie_list'>
-        {data?.results.map((movie,index) => (
-          <li key={index}>
-            <MovieCard movie={movie} widthFixed/>
-          </li>
-        ))}
-        </ul>
-        <ReactPaginate
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          marginPagesDisplayed={1}
-          pageCount={data?.total_pages}
-          previousLabel="<"
-          pageClassName="page-item"
-          pageLinkClassName="page-link"
-          previousClassName="page-item"
-          previousLinkClassName="page-link"
-          nextClassName="page-item"
-          nextLinkClassName="page-link"
-          breakLabel="..."
-          breakClassName="page-item"
-          breakLinkClassName="page-link"
-          containerClassName="pagination"
-          activeClassName="active"
-          // renderOnZeroPageCount={null}
-          forcePage={page-1}
-        />
+        <MoviesList movieData={search} handlePageClick={handlePageClick} page={page} genre={genre} sort={sort}/>
       </div>
     </Content>
   )
